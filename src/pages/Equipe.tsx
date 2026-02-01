@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { PageTransition } from "../components/layout/PageTransition";
 import { Linkedin, Github, Twitter } from "lucide-react";
+import TeamSection from "./TeamSection";
 
 const teamMembers = [
   {
@@ -183,6 +184,7 @@ export default function Equipe() {
             </div>
           </motion.div>
         </div>
+        <TeamSection />
       </main>
     </PageTransition>
   );
