@@ -67,7 +67,15 @@ const projects = [
     stack: ["Desktop App", "Game Dev", "AI"],
     gradient: "from-neon-purple to-primary",
   },
- 
+  {
+    id: "jnbfitness",
+    title: "JNBFitness",
+    category: "Fitness Management",
+    description: "Système complet de gestion de salle de sport avec suivi des clients, gestion des coachs, planification des séances et gestion des cours.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
+    stack: ["React.js", ".NET", "MySQL"],
+    gradient: "from-neon-cyan to-neon-purple",
+  },
 ];
 
 export default function Projets() {
