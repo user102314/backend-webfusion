@@ -67,15 +67,7 @@ const projects = [
     stack: ["Desktop App", "Game Dev", "AI"],
     gradient: "from-neon-purple to-primary",
   },
-  {
-    id: "word-game-binance",
-    title: "Word Game - Binance",
-    category: "Gaming & Blockchain",
-    description: "Jeu de mots quotidien développé en collaboration avec Binance. Engagement utilisateur et gamification.",
-    image: "https://images.unsplash.com/photo-1640158615573-cd28feb1bf4e?w=800&h=600&fit=crop",
-    stack: ["Web Game", "API Integration", "Gamification"],
-    gradient: "from-neon-cyan to-neon-pink",
-  },
+ 
 ];
 
 export default function Projets() {
