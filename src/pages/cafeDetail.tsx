@@ -225,6 +225,8 @@ export default function CafeZoneProject() {
             </div>
           </div>
           {/* --- FOOTER / TEAM --- */}
+          {/* --- FOOTER / TEAM --- */}
+          {/* --- FOOTER / TEAM --- */}
 
           {/* --- FOOTER / TEAM --- */}
           <div className="text-center">
