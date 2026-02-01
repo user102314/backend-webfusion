@@ -224,6 +224,7 @@ export default function CafeZoneProject() {
               </motion.div>
             </div>
           </div>
+          {/* --- FOOTER / TEAM --- */}
 
           {/* --- FOOTER / TEAM --- */}
           <div className="text-center">
