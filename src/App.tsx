@@ -20,6 +20,7 @@ import MyLBDetail from "./pages/MyLBDetail";
 import FormacityDetail from "./pages/FormacityDetail";
 import CafeZoneProject from "./pages/cafeDetail";
 import WebFusionDetail from "./pages/WebFusionDetail";
+import JNBFitnessDetail from "./pages/JNBFitnessDetail";
 
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/projets/formacity" element={<FormacityDetail />} />
               <Route path="/projets/cafe-zone" element={<CafeZoneProject />} />
               <Route path="/projets/webfusion-digital" element={<WebFusionDetail />} />
+              <Route path="/projets/jnbfitness" element={<JNBFitnessDetail />} />
 
               <Route path="/temoignages" element={<Temoignages />} />
               <Route path="/equipe" element={<Equipe />} />
