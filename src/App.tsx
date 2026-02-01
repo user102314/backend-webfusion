@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 import MyLBDetail from "./pages/MyLBDetail";
 import FormacityDetail from "./pages/FormacityDetail";
 import CafeZoneProject from "./pages/cafeDetail";
+import WebFusionDetail from "./pages/WebFusionDetail";
 
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
               <Route path="/projets/mylb" element={<MyLBDetail />} />
               <Route path="/projets/formacity" element={<FormacityDetail />} />
               <Route path="/projets/cafe-zone" element={<CafeZoneProject />} />
+              <Route path="/projets/webfusion-digital" element={<WebFusionDetail />} />
 
               <Route path="/temoignages" element={<Temoignages />} />
               <Route path="/equipe" element={<Equipe />} />
