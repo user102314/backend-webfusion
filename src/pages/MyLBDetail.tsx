@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import { PageTransition } from "../components/layout/PageTransition";
 import { 
   ShieldCheck, 
@@ -57,7 +57,13 @@ export default function MyLBProject() {
               className="text-xl text-muted-foreground leading-relaxed"
             >
               Une plateforme web sécurisée conçue pour démocratiser l'investissement en Tunisie, connectant Owners ambitieux et Investisseurs stratégiques.
+              <br />
+              SiteWeb : 
+<a href="https://my-lb-make-your-life-better.vercel.app" style={{ color: "#e5ff00" }}>
+   MyLb
+</a>
             </motion.p>
+
           </div>
 
           {/* --- ACTEURS GRID --- */}

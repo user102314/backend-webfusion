@@ -17,6 +17,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminPanel from "./pages/AdminPanel";
 import NotFound from "./pages/NotFound";
 import MyLBDetail from "./pages/MyLBDetail";
+import FormacityDetail from "./pages/FormacityDetail";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,8 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/projets" element={<Projets />} />
               <Route path="/projets/mylb" element={<MyLBDetail />} />
+              <Route path="/projets/formacity" element={<FormacityDetail />} />
+
               <Route path="/temoignages" element={<Temoignages />} />
               <Route path="/equipe" element={<Equipe />} />
               <Route path="/competences" element={<Competences />} />
