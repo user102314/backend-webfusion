@@ -11,6 +11,8 @@ const navLinks = [
   { name: "Équipe", path: "/equipe" },
   { name: "Compétences", path: "/competences" },
   { name: "Contact", path: "/contact" },
+    { name: "Gallery", path: "/gallery" },
+
 ];
 
 export function Navbar() {

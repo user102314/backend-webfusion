@@ -22,6 +22,8 @@ import CafeZoneProject from "./pages/cafeDetail";
 import WebFusionDetail from "./pages/WebFusionDetail";
 import JNBFitnessDetail from "./pages/JNBFitnessDetail";
 
+import TeamSection from "./pages/TeamSection";
+  
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,8 @@ const App = () => (
               <Route path="/projets/jnbfitness" element={<JNBFitnessDetail />} />
 
               <Route path="/temoignages" element={<Temoignages />} />
+              <Route path="/gallery" element={<TeamSection />} />
+
               <Route path="/equipe" element={<Equipe />} />
               <Route path="/competences" element={<Competences />} />
               <Route path="/contact" element={<Contact />} />
