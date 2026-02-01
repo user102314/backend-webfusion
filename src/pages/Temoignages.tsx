@@ -32,7 +32,7 @@ export default function Temoignages() {
         const data = await response.json();
         // On n'affiche que les avis qui sont déjà approuvés (ex: etat === "1")
         // Si tu veux tout afficher même ceux à "0", enlève le filter
-        setAvis(data.filter((a: Avis) => a.etat === "1")); 
+        setAvis(data.filter((a: Avis) => a.etat === "APPROUVE")); 
       }
     } catch (error) {
       console.error("Erreur fetch:", error);
