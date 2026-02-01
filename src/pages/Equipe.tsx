@@ -17,7 +17,7 @@ const teamMembers = [
     },
   },
   {
-    name: "Salaheddin Jendoubi",
+    name: "Salaheddine Jendoubi",
     role: "CTO & Security Expert",
     description: "Spécialiste en cybersécurité et systèmes distribués. Certifié CISSP et passionné par la protection des données.",
     image: "../../public/salah.png",
