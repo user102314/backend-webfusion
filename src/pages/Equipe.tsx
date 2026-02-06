@@ -6,7 +6,7 @@ import TeamSection from "./TeamSection";
 
 const teamMembers = [
   {
-    name: "Oussema Karia",
+    name: "Oussama Karia",
     role: "CEO & Lead Developer",
     description: "Expert en architecture logicielle et développement full-stack. Passionné par l'innovation et les technologies émergentes.",
     image: "../../public/oussema.png",
