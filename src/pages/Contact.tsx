@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { PageTransition } from "../components/layout/PageTransition";
-import { Send, MapPin, Phone, Mail, Clock, MessageSquare, Sparkles, ArrowRight } from "lucide-react";
+import { Send, MapPin, Phone, Mail, Clock, MessageSquare, Sparkles, ArrowRight, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -56,7 +56,12 @@ const itemVariants = {
 };
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ nom: "", email: "", telephone: "", message: "" });
+  const [formData, setFormData] = useState({ 
+    nom: "", 
+    email: "", 
+    telephone: "", 
+    message: "" 
+  });
   const [submitting, setSubmitting] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
   const { toast } = useToast();
@@ -65,39 +70,50 @@ export default function Contact() {
     e.preventDefault();
     setSubmitting(true);
 
-// Dans Contact.tsx
-const dataToSend = {
-    nom: formData.nom,
-    email: formData.email,
-    tlf: formData.telephone, // Vérifie bien que la clé est 'tlf' ici
-    message: formData.message
-};
+    // ✅ Format correspondant exactement à ContactODTO
+    const dataToSend = {
+      nom: formData.nom,
+      email: formData.email,
+      telephone: formData.telephone, // Correspond à "telephone" dans le DTO
+      message: formData.message
+    };
+
+    console.log("📤 Envoi des données contact:", dataToSend);
 
     try {
-      const response = await fetch("http://localhost:9090/api/o/contact", {
+      const response = await fetch("http://localhost:9090/api/contacts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify(dataToSend),
       });
 
+      console.log("📥 Réponse status:", response.status);
+
       if (response.ok) {
+        const savedContact = await response.json();
+        console.log("✅ Contact sauvegardé:", savedContact);
+        
         toast({ 
           title: "✨ Message envoyé avec succès !", 
-          description: "Les données ont été enregistrées dans la base de données." 
+          description: "Nous vous répondrons dans les plus brefs délais." 
         });
-        // On vide le formulaire
+        
+        // Réinitialiser le formulaire
         setFormData({ nom: "", email: "", telephone: "", message: "" });
       } else {
-        throw new Error("Erreur serveur");
+        const errorText = await response.text();
+        console.error("❌ Erreur serveur:", errorText);
+        throw new Error(`Erreur ${response.status}`);
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi:", error);
+      console.error("❌ Erreur lors de l'envoi:", error);
       toast({ 
         variant: "destructive",
         title: "❌ Échec de l'envoi", 
-        description: "Assurez-vous que le backend Spring Boot est lancé sur le port 9090." 
+        description: "Impossible d'envoyer le message. Vérifiez que le serveur backend est démarré." 
       });
     } finally {
       setSubmitting(false);
@@ -224,7 +240,9 @@ const dataToSend = {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="block text-sm font-medium">Nom complet *</label>
+                        <label className="block text-sm font-medium">
+                          Nom complet <span className="text-red-500">*</span>
+                        </label>
                         <input 
                           type="text" 
                           value={formData.nom} 
@@ -232,13 +250,19 @@ const dataToSend = {
                           onFocus={() => setFocused("nom")}
                           onBlur={() => setFocused(null)}
                           placeholder="Votre nom"
-                          className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none ${focused === "nom" ? "border-primary" : "border-border"}`}
-                          required 
+                          className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none ${
+                            focused === "nom" ? "border-primary ring-2 ring-primary/20" : "border-border"
+                          }`}
+                          required
+                          minLength={2}
+                          maxLength={100}
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-sm font-medium">Email *</label>
+                        <label className="block text-sm font-medium">
+                          Email <span className="text-red-500">*</span>
+                        </label>
                         <input 
                           type="email" 
                           value={formData.email} 
@@ -246,7 +270,9 @@ const dataToSend = {
                           onFocus={() => setFocused("email")}
                           onBlur={() => setFocused(null)}
                           placeholder="votre@email.com"
-                          className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none ${focused === "email" ? "border-primary" : "border-border"}`}
+                          className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none ${
+                            focused === "email" ? "border-primary ring-2 ring-primary/20" : "border-border"
+                          }`}
                           required 
                         />
                       </div>
@@ -261,37 +287,58 @@ const dataToSend = {
                         onFocus={() => setFocused("telephone")}
                         onBlur={() => setFocused(null)}
                         placeholder="+216 XX XXX XXX"
-                        className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none ${focused === "telephone" ? "border-primary" : "border-border"}`}
+                        className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none ${
+                          focused === "telephone" ? "border-primary ring-2 ring-primary/20" : "border-border"
+                        }`}
+                        maxLength={20}
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium">Message *</label>
+                      <label className="block text-sm font-medium">
+                        Message <span className="text-red-500">*</span>
+                      </label>
                       <textarea 
                         value={formData.message} 
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
                         onFocus={() => setFocused("message")}
                         onBlur={() => setFocused(null)}
                         placeholder="Décrivez votre projet..."
-                        className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none min-h-[150px] resize-none ${focused === "message" ? "border-primary" : "border-border"}`}
-                        required 
+                        className={`w-full px-4 py-3 rounded-xl bg-muted/50 border transition-all outline-none min-h-[150px] resize-none ${
+                          focused === "message" ? "border-primary ring-2 ring-primary/20" : "border-border"
+                        }`}
+                        required
+                        minLength={10}
+                        maxLength={2000}
                       />
+                      <p className="text-sm text-muted-foreground">
+                        Minimum 10 caractères
+                      </p>
                     </div>
 
                     <motion.button 
                       type="submit" 
-                      disabled={submitting} 
-                      className="btn-neon w-full flex items-center justify-center gap-3 py-4 text-lg font-semibold bg-primary text-primary-foreground rounded-xl"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      disabled={submitting || !formData.nom || !formData.email || !formData.message} 
+                      className="btn-neon w-full flex items-center justify-center gap-3 py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      whileHover={{ scale: submitting ? 1 : 1.02 }}
+                      whileTap={{ scale: submitting ? 1 : 0.98 }}
                     >
-                      {submitting ? "Envoi en cours..." : (
+                      {submitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Envoi en cours...
+                        </>
+                      ) : (
                         <>
                           <Send className="w-5 h-5" />
                           Envoyer le message
                         </>
                       )}
                     </motion.button>
+                    
+                    <p className="text-xs text-center text-muted-foreground">
+                      En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe.
+                    </p>
                   </form>
                 </div>
               </div>
