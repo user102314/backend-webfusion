@@ -23,6 +23,7 @@ import WebFusionDetail from "./pages/WebFusionDetail";
 import JNBFitnessDetail from "./pages/JNBFitnessDetail";
 
 import TeamSection from "./pages/TeamSection";
+import Parlez from "./pages/Parlez";
   
 
 const queryClient = new QueryClient();
@@ -51,7 +52,7 @@ const App = () => (
               <Route path="/equipe" element={<Equipe />} />
               <Route path="/competences" element={<Competences />} />
               <Route path="/contact" element={<Contact />} />
-              
+              <Route path="/parlez" element={<Parlez />} />
               <Route path="/Admin067" element={<AdminLogin />} />
               <Route path="/Admin067/panel" element={<AdminPanel />} />
               <Route path="*" element={<NotFound />} />
