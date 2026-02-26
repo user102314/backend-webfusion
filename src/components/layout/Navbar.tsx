@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import logo from "@/assets/logo.png";
+
 const navLinks = [
   { name: "Accueil", path: "/" },
   { name: "Projets", path: "/projets" },
@@ -11,8 +12,14 @@ const navLinks = [
   { name: "Équipe", path: "/equipe" },
   { name: "Compétences", path: "/competences" },
   { name: "Contact", path: "/contact" },
-    { name: "Gallery", path: "/gallery" },
-      { name: "Parlez", path: "/parlez" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Avantage", path: "/parlez" },
+  { 
+    name: "Offre", 
+    path: "/Services",
+    special: true,
+    icon: Sparkles
+  },
 ];
 
 export function Navbar() {
@@ -60,30 +67,56 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className="relative px-4 py-2 text-sm font-medium transition-colors"
-            >
-              <span
-                className={`relative z-10 ${
-                  location.pathname === link.path
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            return link.special ? (
+              // Lien spécial pour "Offre"
+              <motion.div
+                key={link.path}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {link.name}
-              </span>
-              {location.pathname === link.path && (
-                <motion.div
-                  layoutId="navbar-active"
-                  className="absolute inset-0 rounded-lg bg-primary/10"
-                  transition={{ type: "spring", duration: 0.5 }}
-                />
-              )}
-            </Link>
-          ))}
+                <Link
+                  to={link.path}
+                  className="relative px-5 py-2.5 text-sm font-bold rounded-xl bg-gradient-to-r from-primary to-primary/80 text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 flex items-center gap-2 group"
+                >
+                  <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                  <span>{link.name}</span>
+                  {location.pathname === link.path && (
+                    <motion.div
+                      layoutId="navbar-special-active"
+                      className="absolute inset-0 rounded-xl bg-white/20"
+                      transition={{ type: "spring", duration: 0.5 }}
+                    />
+                  )}
+                </Link>
+              </motion.div>
+            ) : (
+              // Liens normaux
+              <Link
+                key={link.path}
+                to={link.path}
+                className="relative px-4 py-2 text-sm font-medium transition-colors"
+              >
+                <span
+                  className={`relative z-10 ${
+                    location.pathname === link.path
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </span>
+                {location.pathname === link.path && (
+                  <motion.div
+                    layoutId="navbar-active"
+                    className="absolute inset-0 rounded-lg bg-primary/10"
+                    transition={{ type: "spring", duration: 0.5 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Actions */}
@@ -122,16 +155,31 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link
-                    to={link.path}
-                    className={`block px-4 py-3 rounded-xl transition-all ${
-                      location.pathname === link.path
-                        ? "bg-primary/10 text-primary"
-                        : "hover:bg-muted text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
+                  {link.special ? (
+                    // Version mobile spéciale
+                    <Link
+                      to={link.path}
+                      className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold transition-all ${
+                        location.pathname === link.path
+                          ? "bg-primary text-white shadow-lg shadow-primary/30"
+                          : "bg-gradient-to-r from-primary/20 to-primary/10 text-primary border border-primary/30 hover:from-primary/30 hover:to-primary/20"
+                      }`}
+                    >
+                      <Sparkles className="w-5 h-5" />
+                      <span>{link.name}</span>
+                    </Link>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className={`block px-4 py-3 rounded-xl transition-all ${
+                        location.pathname === link.path
+                          ? "bg-primary/10 text-primary"
+                          : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>

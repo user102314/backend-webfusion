@@ -4,19 +4,19 @@ import { Camera, Sparkles, Maximize2 } from "lucide-react";
 
 export default function BestMomentsGallery() {
   const moments = [
-    { id: 1, title: "Work", date: "Jan 2024", img: "../../public/1.jpg" },
-    { id: 2, title: "Work", date: "Fév 2024", img: "../../public/2.jpg" },
-    { id: 3, title: "Work", date: "Mar 2024", img: "../../public/3.jpg" },
-    { id: 4, title: "Work", date: "Avr 2024", img: "../../public/4.jpg" },
-    { id: 5, title: "Work", date: "Mai 2024", img: "../../public/5.jpg" },
-    { id: 6, title: "Work", date: "Juin 2024", img: "../../public/6.jpg" },
-    { id: 7, title: "Work", date: "Juil 2024", img: "../../public/7.jpg" },
-    { id: 8, title: "Work", date: "Août 2024", img: "../../public/8.jpg" },
-    { id:10, title: "Work", date: "Août 2024", img: "../../public/10.jpg" },
-    { id: 11, title: "Work", date: "Août 2024", img: "../../public/11.jpg" },
-    { id: 14, title: "Work", date: "Août 2024", img: "../../public/14.jpg" },
-    { id: 12, title: "Work", date: "Août 2024", img: "../../public/12.jpg" },
-    { id: 13, title: "Work", date: "Août 2024", img: "../../public/13.jpg" },
+    { id: 1, title: "Work", date: "Jan 2024", img: "1.jpg" },
+    { id: 2, title: "Work", date: "Fév 2024", img: "2.jpg" },
+    { id: 3, title: "Work", date: "Mar 2024", img: "3.jpg" },
+    { id: 4, title: "Work", date: "Avr 2024", img: "4.jpg" },
+    { id: 5, title: "Work", date: "Mai 2024", img: "5.jpg" },
+    { id: 6, title: "Work", date: "Juin 2024", img: "6.jpg" },
+    { id: 7, title: "Work", date: "Juil 2024", img: "7.jpg" },
+    { id: 8, title: "Work", date: "Août 2024", img: "8.jpg" },
+    { id:10, title: "Work", date: "Août 2024", img: "10.jpg" },
+    { id: 11, title: "Work", date: "Août 2024", img: "11.jpg" },
+    { id: 14, title: "Work", date: "Août 2024", img: "14.jpg" },
+    { id: 12, title: "Work", date: "Août 2024", img: "12.jpg" },
+    { id: 13, title: "Work", date: "Août 2024", img: "13.jpg" },
   ];
 
   return (

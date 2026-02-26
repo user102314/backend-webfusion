@@ -29,8 +29,8 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Disponibilité",
-    value: "Lun - Ven",
-    description: "9h00 - 18h00",
+    value: "24/7",
+    description: "24 Heures",
     color: "from-amber-500 to-orange-500"
   }
 ];

@@ -9,7 +9,7 @@ const teamMembers = [
     name: "Oussama Karia",
     role: "CEO & Lead Developer",
     description: "Expert en architecture logicielle et développement full-stack. Passionné par l'innovation et les technologies émergentes.",
-    image: "../../public/oussema.png",
+    image: "oussema.png",
     skills: ["React", "Node.js", "Architecture", "Leadership"],
     social: {
       linkedin: "#",
@@ -21,7 +21,7 @@ const teamMembers = [
     name: "Salaheddine Jendoubi",
     role: "CTO & Security Expert",
     description: "Spécialiste en cybersécurité et systèmes distribués. Certifié CISSP et passionné par la protection des données.",
-    image: "../../public/salah.png",
+    image: "salah.png",
     skills: ["Cybersécurité", "DevOps", "Cloud", "Pentesting"],
     social: {
       linkedin: "#",
@@ -33,7 +33,7 @@ const teamMembers = [
     name: "Wael Houidi",
     role: "Lead Mobile Developer",
     description: "Développeur mobile expert en React Native et Flutter. Créateur d'expériences utilisateur exceptionnelles.",
-    image: "../../public/wael.png",
+    image: "wael.png",
     skills: ["React Native", "Flutter", "iOS", "Android"],
     social: {
       linkedin: "#",

@@ -14,9 +14,62 @@ interface Avis {
   dateCreation: string;
 }
 
+// Données mock en cas d'échec de l'API
+const MOCK_AVIS: Avis[] = [
+  {
+    id: 1,
+    nomUtilisateur: "Sophie Martin",
+    message: "Service exceptionnel ! L'équipe a été très professionnelle et à l'écoute de mes besoins. Je recommande vivement.",
+    note: 5,
+    etat: "APPROUVE",
+    dateCreation: "2024-03-15T10:30:00Z"
+  },
+  {
+    id: 2,
+    nomUtilisateur: "Thomas Bernard",
+    message: "Une expérience vraiment positive. Les résultats ont dépassé mes attentes. Merci à toute l'équipe !",
+    note: 5,
+    etat: "APPROUVE",
+    dateCreation: "2024-03-14T14:45:00Z"
+  },
+  {
+    id: 3,
+    nomUtilisateur: "Marie Dubois",
+    message: "Très satisfaite du service, bien que les délais aient été un peu longs. La qualité est au rendez-vous.",
+    note: 4,
+    etat: "APPROUVE",
+    dateCreation: "2024-03-12T09:20:00Z"
+  },
+  {
+    id: 4,
+    nomUtilisateur: "Pierre Durand",
+    message: "Excellent accompagnement, des conseils pertinents et une équipe à l'écoute. Je referai appel à eux sans hésiter.",
+    note: 5,
+    etat: "APPROUVE",
+    dateCreation: "2024-03-10T16:15:00Z"
+  },
+  {
+    id: 5,
+    nomUtilisateur: "Claire Petit",
+    message: "Un grand merci pour votre professionnalisme. Je suis ravie du résultat final et de la qualité des échanges.",
+    note: 5,
+    etat: "APPROUVE",
+    dateCreation: "2024-03-08T11:00:00Z"
+  },
+  {
+    id: 6,
+    nomUtilisateur: "Nicolas Moreau",
+    message: "Rapport qualité-prix excellent. Je recommande cette équipe pour leur sérieux et leur réactivité.",
+    note: 4,
+    etat: "APPROUVE",
+    dateCreation: "2024-03-05T13:40:00Z"
+  }
+];
+
 export default function Temoignages() {
   const [avis, setAvis] = useState<Avis[]>([]);
   const [loading, setLoading] = useState(true);
+  const [usingMockData, setUsingMockData] = useState(false);
   const [formData, setFormData] = useState({
     nomUtilisateur: "",
     message: "",
@@ -43,12 +96,26 @@ export default function Temoignages() {
       console.log("Avis approuvés:", avisApprouves);
       
       setAvis(avisApprouves);
+      setUsingMockData(false);
+      
+      // Toast de succès silencieux (optionnel)
+      // toast({
+      //   title: "✅ Avis chargés",
+      //   description: `${avisApprouves.length} avis disponibles`,
+      // });
+      
     } catch (error) {
-      console.error("Erreur fetch:", error);
+      console.error("Erreur fetch, utilisation des données mock:", error);
+      
+      // Utiliser les données mock en cas d'erreur
+      setAvis(MOCK_AVIS);
+      setUsingMockData(true);
+      
+      // Afficher une notification informant de l'utilisation des données mock
       toast({
-        variant: "destructive",
-        title: "❌ Erreur",
-        description: "Impossible de charger les avis. Vérifiez que le serveur backend est démarré.",
+        title: "🔌 Mode démo",
+        description: "Connexion au serveur impossible. Affichage des avis de démonstration.",
+        duration: 5000,
       });
     } finally {
       setLoading(false);
@@ -69,12 +136,46 @@ export default function Temoignages() {
       nomUtilisateur: formData.nomUtilisateur,
       message: formData.message,
       note: formData.note,
-      // L'état sera mis à "EN_ATTENTE" par défaut côté serveur
     };
 
     console.log("Envoi des données:", dataToSend);
 
     try {
+      // Vérifier si on utilise les données mock (API indisponible)
+      if (usingMockData) {
+        // Simuler un délai d'envoi
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Créer un avis mock avec les données du formulaire
+        const mockNewAvis: Avis = {
+          id: MOCK_AVIS.length + 1,
+          nomUtilisateur: formData.nomUtilisateur,
+          message: formData.message,
+          note: formData.note,
+          etat: "APPROUVE", // En mode démo, les avis sont directement approuvés
+          dateCreation: new Date().toISOString()
+        };
+        
+        // Ajouter le nouvel avis à la liste existante
+        setAvis(prevAvis => [mockNewAvis, ...prevAvis]);
+        
+        toast({
+          title: "✨ Avis envoyé (mode démo) !",
+          description: "Merci ! Votre témoignage a été ajouté (mode démonstration).",
+        });
+        
+        // Réinitialiser le formulaire
+        setFormData({ 
+          nomUtilisateur: "", 
+          message: "", 
+          note: 5 
+        });
+        
+        setSubmitting(false);
+        return;
+      }
+
+      // Mode normal avec API réelle
       const response = await fetch("http://localhost:9090/api/avis", {
         method: "POST",
         headers: { 
@@ -161,6 +262,18 @@ export default function Temoignages() {
     <PageTransition>
       <main className="pt-32 pb-24 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
+          {usingMockData && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg text-center"
+            >
+              <p className="text-amber-600 dark:text-amber-400 text-sm">
+                ⚡ Mode démonstration - Les avis affichés sont des exemples. Le serveur backend n'est pas accessible.
+              </p>
+            </motion.div>
+          )}
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -299,13 +412,15 @@ export default function Temoignages() {
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      Envoyer mon témoignage
+                      {usingMockData ? "Envoyer (mode démo)" : "Envoyer mon témoignage"}
                     </>
                   )}
                 </button>
                 
                 <p className="text-xs text-center text-muted-foreground">
-                  En soumettant ce formulaire, vous acceptez que votre avis soit publié après modération.
+                  {usingMockData 
+                    ? "Mode démonstration : votre avis sera ajouté immédiatement à la liste."
+                    : "En soumettant ce formulaire, vous acceptez que votre avis soit publié après modération."}
                 </p>
               </form>
             </div>
