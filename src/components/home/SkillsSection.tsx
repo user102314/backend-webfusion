@@ -1,12 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Code2, 
-  Smartphone, 
-  Shield, 
-  Database, 
-  Cloud, 
+import {
+  Code2,
+  Smartphone,
+  Shield,
+  Database,
+  Cloud,
   Cpu,
   ArrowRight
 } from "lucide-react";
@@ -82,8 +82,8 @@ export function SkillsSection() {
     <section ref={ref} className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      
-      <div className="container mx-auto px-4 relative">
+
+      <div className="container mx-auto relative">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

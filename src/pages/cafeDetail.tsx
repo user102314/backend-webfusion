@@ -44,7 +44,7 @@ export default function CafeZoneProject() {
 
   return (
     <PageTransition>
-      <main className="pt-32 pb-24 bg-[#0a0a0c]">
+      <main className="pt-32 pb-24 bg-background">
         <div className="container mx-auto px-4">
           
           {/* --- HERO SECTION --- */}
@@ -83,7 +83,7 @@ export default function CafeZoneProject() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-6 text-center border-white/5"
+                className="glass-card p-6 text-center border-border/50"
               >
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <Users2 className="w-5 h-5 text-primary" />
@@ -128,7 +128,7 @@ export default function CafeZoneProject() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative glass-card p-8 border-white/10"
+                className="relative glass-card p-8 border-border/50"
               >
                 <div className="flex justify-between items-center mb-8">
                   <h4 className="font-bold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-primary" /> Performance Live</h4>
@@ -139,7 +139,7 @@ export default function CafeZoneProject() {
                     <span className="text-muted-foreground">Chiffre du jour</span>
                     <span className="text-primary font-bold">1,240 DT</span>
                   </div>
-                  <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-2 bg-foreground/5 rounded-full overflow-hidden">
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "70%" }}
@@ -148,11 +148,11 @@ export default function CafeZoneProject() {
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-white/5 rounded-xl border border-white/5 text-center">
+                    <div className="p-4 bg-foreground/5 rounded-xl border border-border/50 text-center">
                       <p className="text-[10px] text-muted-foreground uppercase mb-1">Commandes</p>
                       <p className="text-xl font-bold italic">42</p>
                     </div>
-                    <div className="p-4 bg-white/5 rounded-xl border border-white/5 text-center">
+                    <div className="p-4 bg-foreground/5 rounded-xl border border-border/50 text-center">
                       <p className="text-[10px] text-muted-foreground uppercase mb-1">Actif</p>
                       <p className="text-xl font-bold italic">86%</p>
                     </div>
@@ -167,7 +167,7 @@ export default function CafeZoneProject() {
             <h2 className="text-3xl font-bold text-center mb-16">Intelligence de <span className="text-primary">Gestion</span></h2>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {techHighlights.map((tech, i) => (
-                <div key={i} className="p-8 glass-card border-white/5 group hover:border-primary/50 transition-all">
+                <div key={i} className="p-8 glass-card border-border/50 group hover:border-primary/50 transition-all">
                   <tech.icon className="w-10 h-10 mx-auto mb-4 text-primary group-hover:scale-110 transition-transform" />
                   <h3 className="font-bold mb-2">{tech.title}</h3>
                   <p className="text-sm text-muted-foreground">{tech.desc}</p>
@@ -232,10 +232,10 @@ export default function CafeZoneProject() {
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-8">Développé pour la Performance Commerciale</h2>
             <div className="flex flex-wrap justify-center gap-4">
-                 <span className="px-8 py-3 rounded-xl glass-card border-white/10 text-sm font-bold tracking-wide">
+                 <span className="px-8 py-3 rounded-xl glass-card border-border/50 text-sm font-bold tracking-wide">
                    Oussema Karia
                  </span>
-                 <span className="px-8 py-3 rounded-xl glass-card border-white/10 text-sm font-bold tracking-wide">
+                 <span className="px-8 py-3 rounded-xl glass-card border-border/50 text-sm font-bold tracking-wide">
                    Full Stack Developer
                  </span>
             </div>

@@ -51,6 +51,15 @@ const projects = [
     stack: ["React.js", ".NET", "MySQL"],
     gradient: "from-neon-cyan to-neon-purple",
   },
+  {
+    id: "autoassistapp",
+    title: "AutoAssistApp",
+    category: "Mobile AI App",
+    description: "Une solution mobile unifiée conçue pour simplifier et automatiser le flux de travail des médias sociaux. Elle combine la puissance de l'IA (Gemini) pour créer et planifier sur plusieurs plateformes.",
+    image: "/autoassitapp.webp",
+    stack: ["Flutter", "Node.js", "Firebase", "Gemini AI"],
+    gradient: "from-neon-purple to-neon-pink",
+  },
 ];
 // {
 //    id: "bousetta-wedding",

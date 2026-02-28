@@ -36,7 +36,7 @@ export function AboutSection() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <motion.div
@@ -50,12 +50,12 @@ export function AboutSection() {
               <span className="text-gradient">transformation digitale</span>
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              WebFusion est une équipe passionnée de développeurs, designers et experts en 
-              cybersécurité. Nous combinons expertise technique et créativité pour concevoir 
+              WebFusion est une équipe passionnée de développeurs, designers et experts en
+              cybersécurité. Nous combinons expertise technique et créativité pour concevoir
               des solutions numériques qui font la différence.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Depuis notre création, nous avons accompagné de nombreuses entreprises dans leur 
+              Depuis notre création, nous avons accompagné de nombreuses entreprises dans leur
               transformation digitale, en proposant des solutions innovantes adaptées à leurs besoins spécifiques.
             </p>
           </motion.div>

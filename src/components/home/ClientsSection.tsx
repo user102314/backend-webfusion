@@ -17,7 +17,7 @@ export function ClientsSection() {
 
   return (
     <section ref={ref} className="py-16 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

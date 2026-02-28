@@ -11,12 +11,12 @@ export function CTASection() {
     <section ref={ref} className="py-24 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-      
+
       {/* Animated Blobs */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -41,7 +41,7 @@ export function CTASection() {
 
           {/* Description */}
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Discutons de vos besoins et trouvons ensemble la solution idéale 
+            Discutons de vos besoins et trouvons ensemble la solution idéale
             pour transformer votre vision en réalité.
           </p>
 

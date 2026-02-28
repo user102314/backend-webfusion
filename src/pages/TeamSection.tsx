@@ -4,6 +4,7 @@ import { Camera, Sparkles, Maximize2 } from "lucide-react";
 
 export default function BestMomentsGallery() {
   const moments = [
+
     { id: 1, title: "Work", date: "Jan 2024", img: "1.webp" },
     { id: 2, title: "Work", date: "Fév 2024", img: "2.webp" },
     { id: 3, title: "Work", date: "Mar 2024", img: "3.webp" },
@@ -17,16 +18,17 @@ export default function BestMomentsGallery() {
     { id: 14, title: "Work", date: "Août 2024", img: "14.webp" },
     { id: 12, title: "Work", date: "Août 2024", img: "12.webp" },
     { id: 13, title: "Work", date: "Août 2024", img: "13.webp" },
+
   ];
 
   return (
     <PageTransition>
-      <main className="pt-32 pb-24 bg-[#0a0a0c] min-h-screen">
+      <main className="pt-32 pb-24 bg-background min-h-screen">
         <div className="container mx-auto px-4">
-          
+
           {/* --- HEADER --- */}
           <div className="text-center mb-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-4"
@@ -53,10 +55,10 @@ export default function BestMomentsGallery() {
                 className="group relative"
               >
                 {/* Image Container */}
-                <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/5 bg-muted/20 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]">
-                  
-                  <img 
-                    src={moment.img} 
+                <div className="relative aspect-square rounded-2xl overflow-hidden border border-border/50 bg-muted/20 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+
+                  <img
+                    src={moment.img}
                     alt={moment.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
                   />
@@ -72,7 +74,7 @@ export default function BestMomentsGallery() {
                           {moment.title}
                         </h3>
                       </div>
-                      <div className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/10">
+                      <div className="p-2 rounded-lg bg-foreground/10 backdrop-blur-md border border-border/50">
                         <Maximize2 className="w-4 h-4 text-white" />
                       </div>
                     </div>
@@ -86,15 +88,15 @@ export default function BestMomentsGallery() {
           </div>
 
           {/* --- FOOTER SECTION --- */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="mt-24 py-12 border-t border-white/5 text-center"
+            className="mt-24 py-12 border-t border-border/50 text-center"
           >
             <p className="text-muted-foreground text-sm">
               Envie de créer de nouveaux moments avec nous ?
             </p>
-            <button className="mt-6 px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-primary hover:text-white transition-all duration-300">
+            <button className="mt-6 px-8 py-3 rounded-full bg-foreground text-background font-bold hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               Rejoindre l'aventure
             </button>
           </motion.div>

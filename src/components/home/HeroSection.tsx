@@ -18,12 +18,12 @@ export function HeroSection() {
 
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid opacity-20" />
-      
+
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-4 pt-24 pb-12 relative z-10">
+      <div className="container mx-auto pt-24 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <motion.div
@@ -54,7 +54,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
           >
-            WebFusion conçoit des solutions numériques innovantes : développement web & mobile, 
+            WebFusion conçoit des solutions numériques innovantes : développement web & mobile,
             cybersécurité et résolution de problèmes complexes pour propulser votre entreprise.
           </motion.p>
 

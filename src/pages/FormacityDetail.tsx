@@ -43,7 +43,7 @@ export default function FormacityProject() {
 
   return (
     <PageTransition>
-      <main className="pt-32 pb-24 bg-[#0a0a0c]">
+      <main className="pt-32 pb-24 bg-background">
         <div className="container mx-auto px-4">
           
           {/* --- HERO SECTION --- */}
@@ -82,7 +82,7 @@ export default function FormacityProject() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-6 text-center border-white/5"
+                className="glass-card p-6 text-center border-border/50"
               >
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <UserCheck className="w-5 h-5 text-primary" />
@@ -127,7 +127,7 @@ export default function FormacityProject() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative glass-card p-8 border-white/10"
+                className="relative glass-card p-8 border-border/50"
               >
                 <div className="flex justify-between items-center mb-8">
                   <h4 className="font-bold flex items-center gap-2"><Languages className="w-4 h-4 text-primary" /> Hub Linguistique</h4>
@@ -135,7 +135,7 @@ export default function FormacityProject() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {["Anglais", "Français", "Italien", "Allemand"].map((lang) => (
-                    <div key={lang} className="p-4 bg-white/5 rounded-xl border border-white/5 flex items-center gap-2">
+                    <div key={lang} className="p-4 bg-foreground/5 rounded-xl border border-border/50 flex items-center gap-2">
                       <Globe2 className="w-4 h-4 text-primary/50" />
                       <p className="text-sm font-bold">{lang}</p>
                     </div>
@@ -153,7 +153,7 @@ export default function FormacityProject() {
             <h2 className="text-3xl font-bold text-center mb-16">Nos Services <span className="text-primary">Premium</span></h2>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {services.map((service, i) => (
-                <div key={i} className="p-8 glass-card border-white/5 group hover:border-primary/50 transition-all">
+                <div key={i} className="p-8 glass-card border-border/50 group hover:border-primary/50 transition-all">
                   <service.icon className="w-10 h-10 mx-auto mb-4 text-primary group-hover:scale-110 transition-transform" />
                   <h3 className="font-bold mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">{service.desc}</p>
@@ -191,19 +191,19 @@ export default function FormacityProject() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
+              <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-border/50 aspect-video">
                 <img  src="/formacity2.webp"  alt="Students" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><PlaneTakeoff className="w-4 h-4 text-primary" /> Études Internationales</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
+              <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-border/50 aspect-video">
                 <img src="/formacity3.webp" alt="Workshop" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Séminaires & Ateliers</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
+              <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-border/50 aspect-video">
                 <img src="/formacity4.webp" alt="Consultation" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><HeartHandshake className="w-4 h-4 text-primary" /> Coaching Personnalisé</p>
@@ -216,7 +216,7 @@ export default function FormacityProject() {
             <h2 className="text-2xl font-bold mb-8 italic text-muted-foreground">"Concevoir des solutions sur mesure pour vos projets."</h2>
             <div className="flex flex-wrap justify-center gap-4">
                {["Oussema Karia", "Equipe WebFusion"].map((name) => (
-                 <span key={name} className="px-8 py-3 rounded-xl glass-card border-white/10 text-sm font-bold tracking-wide">
+                 <span key={name} className="px-8 py-3 rounded-xl glass-card border-border/50 text-sm font-bold tracking-wide">
                    {name}
                  </span>
                ))}
