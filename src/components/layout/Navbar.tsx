@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
 import { ThemeToggle } from "../ui/ThemeToggle";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
