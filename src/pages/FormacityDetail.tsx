@@ -198,13 +198,13 @@ export default function FormacityProject() {
               </motion.div>
 
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-border/50 aspect-video">
-                <img src="/formacity3.png" alt="Workshop" className="w-full h-full object-cover" />
+                <img src="/formacity3.webp" alt="Workshop" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Séminaires & Ateliers</p>
               </motion.div>
 
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-border/50 aspect-video">
-                <img src="/formacity4.png" alt="Consultation" className="w-full h-full object-cover" />
+                <img src="/formacity4.webp" alt="Consultation" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><HeartHandshake className="w-4 h-4 text-primary" /> Coaching Personnalisé</p>
               </motion.div>
