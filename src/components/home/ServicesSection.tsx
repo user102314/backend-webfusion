@@ -56,8 +56,8 @@ export function ServicesSection() {
     <section ref={ref} className="py-24 relative">
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-10" />
-      
-      <div className="container mx-auto px-4 relative">
+
+      <div className="container mx-auto relative">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -86,7 +86,7 @@ export function ServicesSection() {
             >
               {/* Gradient Border Effect */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-              
+
               <div className="relative p-8">
                 {/* Icon */}
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6`}>

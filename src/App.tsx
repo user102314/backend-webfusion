@@ -26,18 +26,19 @@ import JNBFitnessDetail from "./pages/JNBFitnessDetail";
 import TeamSection from "./pages/TeamSection";
 import Parlez from "./pages/Parlez";
 import Services from "./pages/Services";
+import AutoAssistAppDetail from "./pages/AutoAssistAppDetail";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <HelmetProvider> 
+  <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         {/* Configuration SEO par défaut pour tout le site */}
         <Helmet>
-            <title>WebFusion | Agence Digitale & Solutions Web</title>
-            <meta name="description" content="WebFusion accompagne les entreprises dans leur transformation digitale avec des solutions web modernes et performantes." />
-            <link rel="canonical" href="https://webfusiondigital.tn" />
+          <title>WebFusion | Agence Digitale & Solutions Web</title>
+          <meta name="description" content="WebFusion accompagne les entreprises dans leur transformation digitale avec des solutions web modernes et performantes." />
+          <link rel="canonical" href="https://webfusiondigital.tn" />
         </Helmet>
 
         <Toaster />
@@ -54,6 +55,7 @@ const App = () => (
                 <Route path="/projets/cafe-zone" element={<CafeZoneProject />} />
                 <Route path="/projets/webfusion-digital" element={<WebFusionDetail />} />
                 <Route path="/projets/jnbfitness" element={<JNBFitnessDetail />} />
+                <Route path="/projets/autoassistapp" element={<AutoAssistAppDetail />} />
                 <Route path="/temoignages" element={<Temoignages />} />
                 <Route path="/gallery" element={<TeamSection />} />
                 <Route path="/equipe" element={<Equipe />} />

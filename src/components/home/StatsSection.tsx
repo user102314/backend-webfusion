@@ -28,12 +28,12 @@ export function StatsSection() {
     <section ref={ref} className="py-20 relative">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid opacity-5" />
-      
-      <div className="container mx-auto px-4">
+
+      <div className="container mx-auto">
         <div className="glass-card p-8 md:p-12 relative overflow-hidden">
           {/* Decorative gradient */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {highlights.map((item, index) => (
               <motion.div
@@ -51,7 +51,7 @@ export function StatsSection() {
                 >
                   <item.icon className="w-8 h-8 text-primary" />
                 </motion.div>
-                
+
                 <h3 className="text-xl font-bold font-display mb-2">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
               </motion.div>

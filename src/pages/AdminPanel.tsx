@@ -28,7 +28,7 @@ export default function AdminPanel() {
   const [avis, setAvis] = useState<AvisO[]>([]);
   const [contacts, setContacts] = useState<ContactO[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -49,12 +49,12 @@ export default function AdminPanel() {
     setIsLoading(true);
     try {
       console.log("📡 Chargement des données...");
-      
+
       const [avisRes, contactsRes] = await Promise.all([
         fetch(AVIS_URL),
         fetch(CONTACTS_URL)
       ]);
-      
+
       if (avisRes.ok) {
         const avisData = await avisRes.json();
         console.log("✅ Avis chargés:", avisData.length);
@@ -62,7 +62,7 @@ export default function AdminPanel() {
       } else {
         console.error("❌ Erreur chargement avis:", avisRes.status);
       }
-      
+
       if (contactsRes.ok) {
         const contactsData = await contactsRes.json();
         console.log("✅ Contacts chargés:", contactsData.length);
@@ -72,10 +72,10 @@ export default function AdminPanel() {
       }
     } catch (error) {
       console.error("❌ Erreur de connexion:", error);
-      toast({ 
-        title: "Erreur de connexion", 
+      toast({
+        title: "Erreur de connexion",
         description: "Impossible de joindre le serveur Spring Boot sur le port 9090.",
-        variant: "destructive" 
+        variant: "destructive"
       });
     } finally {
       setIsLoading(false);
@@ -86,7 +86,7 @@ export default function AdminPanel() {
   const handleModifyAvis = async (id: number, newEtat: string) => {
     try {
       console.log(`🔄 Modification avis ${id} → ${newEtat}`);
-      
+
       const response = await fetch(`${AVIS_URL}/${id}/etat?etat=${newEtat}`, {
         method: 'PUT',
         headers: {
@@ -97,13 +97,13 @@ export default function AdminPanel() {
       if (response.ok) {
         const updatedAvis = await response.json();
         console.log("✅ Avis modifié:", updatedAvis);
-        
+
         // Mettre à jour l'état local
         setAvis(avis.map(a => a.id === id ? updatedAvis : a));
-        
-        toast({ 
-          title: "✅ Succès", 
-          description: `L'avis est maintenant : ${newEtat}` 
+
+        toast({
+          title: "✅ Succès",
+          description: `L'avis est maintenant : ${newEtat}`
         });
       } else {
         const errorText = await response.text();
@@ -112,10 +112,10 @@ export default function AdminPanel() {
       }
     } catch (error) {
       console.error("❌ Erreur:", error);
-      toast({ 
-        title: "❌ Erreur", 
-        description: "Échec de la modification de l'avis.", 
-        variant: "destructive" 
+      toast({
+        title: "❌ Erreur",
+        description: "Échec de la modification de l'avis.",
+        variant: "destructive"
       });
     }
   };
@@ -123,10 +123,10 @@ export default function AdminPanel() {
   // ✅ Supprimer un avis (DELETE /api/avis/{id})
   const handleDeleteAvis = async (id: number) => {
     if (!confirm("Êtes-vous sûr de vouloir supprimer cet avis ?")) return;
-    
+
     try {
       console.log(`🗑️ Suppression avis ${id}`);
-      
+
       const response = await fetch(`${AVIS_URL}/${id}`, {
         method: 'DELETE'
       });
@@ -134,19 +134,19 @@ export default function AdminPanel() {
       if (response.ok || response.status === 204) {
         console.log("✅ Avis supprimé");
         setAvis(avis.filter(a => a.id !== id));
-        toast({ 
-          title: "✅ Supprimé", 
-          description: "L'avis a été supprimé avec succès." 
+        toast({
+          title: "✅ Supprimé",
+          description: "L'avis a été supprimé avec succès."
         });
       } else {
         throw new Error("Erreur lors de la suppression");
       }
     } catch (error) {
       console.error("❌ Erreur suppression:", error);
-      toast({ 
-        title: "❌ Erreur", 
-        description: "Impossible de supprimer l'avis.", 
-        variant: "destructive" 
+      toast({
+        title: "❌ Erreur",
+        description: "Impossible de supprimer l'avis.",
+        variant: "destructive"
       });
     }
   };
@@ -154,10 +154,10 @@ export default function AdminPanel() {
   // ✅ Supprimer un contact (DELETE /api/contacts/{id})
   const handleDeleteContact = async (id: number) => {
     if (!confirm("Êtes-vous sûr de vouloir supprimer ce contact ?")) return;
-    
+
     try {
       console.log(`🗑️ Suppression contact ${id}`);
-      
+
       const response = await fetch(`${CONTACTS_URL}/${id}`, {
         method: 'DELETE'
       });
@@ -165,19 +165,19 @@ export default function AdminPanel() {
       if (response.ok || response.status === 204) {
         console.log("✅ Contact supprimé");
         setContacts(contacts.filter(c => c.id !== id));
-        toast({ 
-          title: "✅ Supprimé", 
-          description: "Le contact a été supprimé avec succès." 
+        toast({
+          title: "✅ Supprimé",
+          description: "Le contact a été supprimé avec succès."
         });
       } else {
         throw new Error("Erreur lors de la suppression");
       }
     } catch (error) {
       console.error("❌ Erreur suppression:", error);
-      toast({ 
-        title: "❌ Erreur", 
-        description: "Impossible de supprimer le contact.", 
-        variant: "destructive" 
+      toast({
+        title: "❌ Erreur",
+        description: "Impossible de supprimer le contact.",
+        variant: "destructive"
       });
     }
   };
@@ -203,25 +203,25 @@ export default function AdminPanel() {
   };
 
   return (
-    <main className="pt-28 pb-12 min-h-screen bg-[#0a0a0c] text-white">
+    <main className="pt-28 pb-12 min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4">
-        
+
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">
             Panneau <span className="text-gradient">Admin</span>
           </h1>
           <div className="flex gap-4">
-            <button 
-              onClick={fetchData} 
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            <button
+              onClick={fetchData}
+              className="p-2 rounded-lg bg-foreground/5 hover:bg-foreground/10 transition-colors"
               disabled={isLoading}
             >
               <RefreshCw className={`w-5 h-5 ${isLoading ? "animate-spin" : ""}`} />
             </button>
-            <motion.button 
-              onClick={handleLogout} 
-              className="btn-ghost-neon flex items-center gap-2 text-red-400 border-red-400/20" 
+            <motion.button
+              onClick={handleLogout}
+              className="btn-ghost-neon flex items-center gap-2 text-red-400 border-red-400/20"
               whileHover={{ scale: 1.02 }}
             >
               <LogOut className="w-4 h-4" />
@@ -232,24 +232,22 @@ export default function AdminPanel() {
 
         {/* Tabs */}
         <div className="flex gap-4 mb-8">
-          <button 
-            onClick={() => setActiveTab("avis")} 
-            className={`px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-all ${
-              activeTab === "avis" 
-                ? "bg-primary text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]" 
-                : "glass-card hover:border-primary/50"
-            }`}
+          <button
+            onClick={() => setActiveTab("avis")}
+            className={`px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-all ${activeTab === "avis"
+              ? "bg-primary text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+              : "glass-card hover:border-primary/50"
+              }`}
           >
             <MessageSquare className="w-5 h-5" />
             Avis ({avis.length})
           </button>
-          <button 
-            onClick={() => setActiveTab("contacts")} 
-            className={`px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-all ${
-              activeTab === "contacts" 
-                ? "bg-primary text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]" 
-                : "glass-card hover:border-primary/50"
-            }`}
+          <button
+            onClick={() => setActiveTab("contacts")}
+            className={`px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-all ${activeTab === "contacts"
+              ? "bg-primary text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+              : "glass-card hover:border-primary/50"
+              }`}
           >
             <Users className="w-5 h-5" />
             Contacts ({contacts.length})
@@ -265,9 +263,9 @@ export default function AdminPanel() {
           <>
             {/* ONGLET AVIS */}
             {activeTab === "avis" && (
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className="grid gap-4"
               >
                 {avis.length === 0 && (
@@ -276,18 +274,17 @@ export default function AdminPanel() {
                   </p>
                 )}
                 {avis.map((item) => (
-                  <div 
-                    key={item.id} 
-                    className="glass-card p-6 flex justify-between items-start border-white/5 hover:border-primary/30 transition-colors"
+                  <div
+                    key={item.id}
+                    className="glass-card p-6 flex justify-between items-start border-border/50 hover:border-primary/30 transition-colors"
                   >
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <span className="font-bold text-lg">{item.nomUtilisateur}</span>
-                        <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${
-                          item.etat === "APPROUVE" ? "bg-green-500/10 text-green-400 border border-green-500/20" : 
+                        <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${item.etat === "APPROUVE" ? "bg-green-500/10 text-green-400 border border-green-500/20" :
                           item.etat === "REJETE" ? "bg-red-500/10 text-red-400 border border-red-500/20" :
-                          "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
-                        }`}>
+                            "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
+                          }`}>
                           {item.etat}
                         </span>
                       </div>
@@ -298,25 +295,25 @@ export default function AdminPanel() {
                       </div>
                     </div>
                     <div className="flex gap-2 ml-4">
-                      <button 
-                        onClick={() => handleModifyAvis(item.id, "APPROUVE")} 
+                      <button
+                        onClick={() => handleModifyAvis(item.id, "APPROUVE")}
                         className="p-3 rounded-xl bg-green-500/10 text-green-400 hover:bg-green-500/20 border border-green-500/20 transition-all"
                         title="Approuver"
                         disabled={item.etat === "APPROUVE"}
                       >
                         <Check className="w-5 h-5" />
                       </button>
-                      <button 
-                        onClick={() => handleModifyAvis(item.id, "REJETE")} 
+                      <button
+                        onClick={() => handleModifyAvis(item.id, "REJETE")}
                         className="p-3 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20 transition-all"
                         title="Rejeter"
                         disabled={item.etat === "REJETE"}
                       >
                         <X className="w-5 h-5" />
                       </button>
-                      <button 
-                        onClick={() => handleDeleteAvis(item.id)} 
-                        className="p-3 rounded-xl bg-gray-500/10 text-gray-400 hover:bg-gray-500/20 border border-gray-500/20 transition-all"
+                      <button
+                        onClick={() => handleDeleteAvis(item.id)}
+                        className="p-3 rounded-xl bg-muted text-muted-foreground hover:bg-muted/80 border border-border/50 transition-all"
                         title="Supprimer"
                       >
                         <Trash2 className="w-5 h-5" />
@@ -329,9 +326,9 @@ export default function AdminPanel() {
 
             {/* ONGLET CONTACTS */}
             {activeTab === "contacts" && (
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className="grid gap-4"
               >
                 {contacts.length === 0 && (
@@ -340,9 +337,9 @@ export default function AdminPanel() {
                   </p>
                 )}
                 {contacts.map((contact) => (
-                  <div 
-                    key={contact.id} 
-                    className="glass-card p-6 border-white/5 hover:border-primary/30 transition-all"
+                  <div
+                    key={contact.id}
+                    className="glass-card p-6 border-border/50 hover:border-primary/30 transition-all"
                   >
                     <div className="flex justify-between items-start mb-4">
                       <div>
@@ -353,13 +350,13 @@ export default function AdminPanel() {
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="flex flex-col items-end gap-1">
-                          <span className="text-sm font-mono text-white/70">{contact.email}</span>
+                          <span className="text-sm font-mono text-muted-foreground">{contact.email}</span>
                           {contact.telephone && (
-                            <span className="text-xs text-white/50">{contact.telephone}</span>
+                            <span className="text-xs text-muted-foreground/70">{contact.telephone}</span>
                           )}
                         </div>
-                        <button 
-                          onClick={() => handleDeleteContact(contact.id)} 
+                        <button
+                          onClick={() => handleDeleteContact(contact.id)}
                           className="p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20 transition-all"
                           title="Supprimer"
                         >
@@ -367,7 +364,7 @@ export default function AdminPanel() {
                         </button>
                       </div>
                     </div>
-                    <div className="bg-white/5 p-4 rounded-lg border border-white/5">
+                    <div className="bg-foreground/5 p-4 rounded-lg border border-border/50">
                       <p className="text-sm leading-relaxed">{contact.message}</p>
                     </div>
                   </div>
