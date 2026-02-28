@@ -22,15 +22,7 @@ const projects = [
     stack: ["Full Stack", "Database", "Dashboard"],
     gradient: "from-neon-purple to-neon-pink",
   },
-  {
-    id: "webfusion-digital",
-    title: "WebFusion Digital",
-    category: "Digital Agency",
-    description: "Agence en ligne spécialisée en marketing digital et solutions digitales. Services complets de développement et présence digitale.",
-    image: "logo.png",
-    stack: ["Web Dev", "Digital Marketing", "Branding"],
-    gradient: "from-neon-cyan to-primary",
-  },
+
   {
     id: "dathum",
     title: "Dathum IT - Contrôle de Versions",
@@ -49,24 +41,7 @@ const projects = [
     stack: ["Real-time", "WebSocket", "Dashboard"],
     gradient: "from-primary to-secondary",
   },
-  {
-    id: "bousetta-wedding",
-    title: "Bousetta Wedding",
-    category: "Event Management",
-    description: "Système de gestion pour salle de mariage. Réservations, planning événements, gestion clients et services.",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-    stack: ["Full Stack", "Booking", "Event Management"],
-    gradient: "from-neon-blue to-neon-cyan",
-  },
-  {
-    id: "freelance",
-    title: "Freelande - Jeu de Damma",
-    category: "Gaming",
-    description: "Application desktop du jeu traditionnel de Damma avec intelligence artificielle et mode multijoueur.",
-    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=600&fit=crop",
-    stack: ["Desktop App", "Game Dev", "AI"],
-    gradient: "from-neon-purple to-primary",
-  },
+
   {
     id: "jnbfitness",
     title: "JNBFitness",
@@ -77,7 +52,34 @@ const projects = [
     gradient: "from-neon-cyan to-neon-purple",
   },
 ];
-
+// {
+//    id: "bousetta-wedding",
+//    title: "Bousetta Wedding",
+//    category: "Event Management",
+//    description: "Système de gestion pour salle de mariage. Réservations, planning événements, gestion clients et services.",
+//    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+//    stack: ["Full Stack", "Booking", "Event Management"],
+//    gradient: "from-neon-blue to-neon-cyan",
+//  },
+ //
+ // {
+ //   id: "freelance",
+ //   title: "Freelande - Jeu de Damma",
+ //   category: "Gaming",
+ //   description: "Application desktop du jeu traditionnel de Damma avec intelligence artificielle et mode multijoueur.",
+ //   image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=600&fit=crop",
+ //   stack: ["Desktop App", "Game Dev", "AI"],
+ //   gradient: "from-neon-purple to-primary",
+ // },
+  // {
+  //  id: "webfusion-digital",
+  //  title: "WebFusion Digital",
+  //  category: "Digital Agency",
+  //  description: "Agence en ligne spécialisée en marketing digital et solutions digitales. Services complets de développement et présence digitale.",
+  //  image: "logo.png",
+  //  stack: ["Web Dev", "Digital Marketing", "Branding"],
+  //  gradient: "from-neon-cyan to-primary",
+  //},
 export default function Projets() {
   return (
     <PageTransition>
