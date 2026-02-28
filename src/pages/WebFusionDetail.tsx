@@ -193,7 +193,7 @@ export default function WebFusionProject() {
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/30 blur-[70px] rounded-full group-hover:bg-primary/50 transition-all duration-700" />
               <img 
-                src="../../public/logo.png" 
+                src="/logo.png" 
                 alt="WebFusion Logo" 
                 className="relative w-48 h-48 md:w-64 md:h-64 object-contain transition-transform duration-700 group-hover:rotate-6 group-hover:scale-110"
               />
@@ -214,19 +214,19 @@ export default function WebFusionProject() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
-                <img src="../../public/w1.png" alt="Cybersecurity" className="w-full h-full object-cover" />
+                <img src="/w1.png" alt="Cybersecurity" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><Lock className="w-4 h-4 text-primary" /> Audits de Sécurité</p>
               </motion.div>
 
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
-                <img src="../../public/w2.png" alt="Web App" className="w-full h-full object-cover" />
+                <img src="/w2.png" alt="Web App" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><Globe className="w-4 h-4 text-primary" /> Web-Apps Évolutives</p>
               </motion.div>
 
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
-                <img src="../../public/w3.png" alt="Complex Systems" className="w-full h-full object-cover" />
+                <img src="/w3.png" alt="Complex Systems" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><Cpu className="w-4 h-4 text-primary" /> Systèmes Complexes</p>
               </motion.div>

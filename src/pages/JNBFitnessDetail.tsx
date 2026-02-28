@@ -172,7 +172,7 @@ export default function JNBFitnessDetail() {
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/30 blur-[60px] rounded-full group-hover:bg-primary/50 transition-all duration-500" />
               <img 
-                src="jfl.png"
+                src="j/fl.png"
                 alt="JNBFitness Logo" 
                 className="relative w-48 h-48 md:w-64 md:h-64 object-contain transition-transform duration-500 group-hover:scale-110"
               />
@@ -199,7 +199,7 @@ export default function JNBFitnessDetail() {
                 className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video"
               >
                 <img 
-                  src="jfpa.png" 
+                  src="/jfpa.png" 
                   alt="Page d'accueil" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -213,7 +213,7 @@ export default function JNBFitnessDetail() {
                 className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video"
               >
                 <img 
-                  src="jfda.png" 
+                  src="/jfda.png" 
                   alt="Dashboard Admin" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -227,7 +227,7 @@ export default function JNBFitnessDetail() {
                 className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video md:col-span-2 lg:col-span-1"
               >
                 <img 
-                  src="jfrc.png" 
+                  src="//jfrc.png" 
                   alt="Réservation Coaching" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
