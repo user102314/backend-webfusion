@@ -1,14 +1,7 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+# On cache l'admin pour ne pas polluer les résultats Google
+Disallow: /Admin067
+Disallow: /Admin067/panel
+
+Sitemap: https://webfusiondigital.tn/sitemap.xml

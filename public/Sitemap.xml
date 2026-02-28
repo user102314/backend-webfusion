@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://webfusiondigital.tn/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://webfusiondigital.tn/projets</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://webfusiondigital.tn/Services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webfusiondigital.tn/contact</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webfusiondigital.tn/competences</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url><loc>https://webfusiondigital.tn/projets/mylb</loc><priority>0.6</priority></url>
+  <url><loc>https://webfusiondigital.tn/projets/formacity</loc><priority>0.6</priority></url>
+  <url><loc>https://webfusiondigital.tn/projets/cafe-zone</loc><priority>0.6</priority></url>
+  <url><loc>https://webfusiondigital.tn/projets/webfusion-digital</loc><priority>0.6</priority></url>
+  <url><loc>https://webfusiondigital.tn/projets/jnbfitness</loc><priority>0.6</priority></url>
+
+  <url><loc>https://webfusiondigital.tn/equipe</loc><priority>0.5</priority></url>
+  <url><loc>https://webfusiondigital.tn/gallery</loc><priority>0.5</priority></url>
+  <url><loc>https://webfusiondigital.tn/temoignages</loc><priority>0.5</priority></url>
+  <url><loc>https://webfusiondigital.tn/parlez</loc><priority>0.5</priority></url>
+</urlset>
