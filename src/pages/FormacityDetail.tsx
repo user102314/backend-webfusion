@@ -171,7 +171,7 @@ export default function FormacityProject() {
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/30 blur-[60px] rounded-full group-hover:bg-primary/50 transition-all duration-500" />
               <img 
-                src="/formacity1.jpg" 
+                src="/formacity1.webp" 
                 alt="Formacity Logo" 
                 className="relative w-48 h-48 md:w-64 md:h-64 object-contain transition-transform duration-500 group-hover:scale-110"
               />
@@ -192,7 +192,7 @@ export default function FormacityProject() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-border/50 aspect-video">
-                <img  src="/formacity2.png"  alt="Students" className="w-full h-full object-cover" />
+                <img  src="/formacity2.webp"  alt="Students" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><PlaneTakeoff className="w-4 h-4 text-primary" /> Études Internationales</p>
               </motion.div>
