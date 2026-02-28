@@ -185,7 +185,7 @@ export default function CafeZoneProject() {
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/30 blur-[60px] rounded-full group-hover:bg-primary/50 transition-all duration-500" />
               <img 
-                src="/zone1.png"
+                src="/zone1.webp"
                 alt="Cafe Zone Logo" 
                 className="relative w-48 h-48 md:w-64 md:h-64 object-contain transition-transform duration-500 group-hover:scale-110"
               />
@@ -206,19 +206,19 @@ export default function CafeZoneProject() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
-                <img src="/zone4.png" alt="" className="w-full h-full object-cover" />
+                <img src="/zone4.webp" alt="" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><Smartphone className="w-4 h-4 text-primary" /> POS Tactile</p>
               </motion.div>
 
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
-                <img src="/zone2.png" alt="Analytics" className="w-full h-full object-cover" />
+                <img src="/zone2.webp" alt="Analytics" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><LayoutDashboard className="w-4 h-4 text-primary" /> Dashboard Manager</p>
               </motion.div>
 
               <motion.div whileHover={{ y: -10 }} className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video">
-                <img src="/zone3.png" alt="History" className="w-full h-full object-cover" />
+                <img src="/zone3.webp" alt="History" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-4 text-sm font-medium flex items-center gap-2"><History className="w-4 h-4 text-primary" /> Historique & Audit</p>
               </motion.div>

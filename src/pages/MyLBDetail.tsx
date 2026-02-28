@@ -177,7 +177,7 @@ export default function MyLBProject() {
               
               <img 
 
-                src="/mylb1.png" 
+                src="/mylb1.webp" 
                 alt="MyLB Logo" 
                 className="relative w-48 h-48 md:w-64 md:h-64 object-contain transition-transform duration-500 group-hover:scale-110"
               />
@@ -204,7 +204,7 @@ export default function MyLBProject() {
                 className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video"
               >
                 <img 
-                  src="/mylb2.png" 
+                  src="/mylb2.webp" 
                   alt="Market Overview" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -218,7 +218,7 @@ export default function MyLBProject() {
                 className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video"
               >
                 <img 
-                  src="/mylb3.png" 
+                  src="/mylb3.webp" 
                   alt="KYC Verification" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -232,7 +232,7 @@ export default function MyLBProject() {
                 className="group relative rounded-2xl overflow-hidden border border-white/10 aspect-video md:col-span-2 lg:col-span-1"
               >
                 <img 
-                  src="/mylb4.png" 
+                  src="/mylb4.webp" 
                   alt="Trading Terminal" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
