@@ -172,7 +172,7 @@ export default function JNBFitnessDetail() {
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/30 blur-[60px] rounded-full group-hover:bg-primary/50 transition-all duration-500" />
               <img 
-                src="/fl.png"
+                src="/jfl.png"
                 alt="JNBFitness Logo" 
                 className="relative w-48 h-48 md:w-64 md:h-64 object-contain transition-transform duration-500 group-hover:scale-110"
               />
