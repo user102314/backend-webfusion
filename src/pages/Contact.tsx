@@ -33,7 +33,7 @@ const contactInfo = [
     description: "24 Heures",
     color: "from-amber-500 to-orange-500"
   }
-];
+];//
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,7 +45,7 @@ const containerVariants = {
     }
   }
 };
-
+//.....//
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
