@@ -27,6 +27,7 @@ import TeamSection from "./pages/TeamSection";
 import Parlez from "./pages/Parlez";
 import Services from "./pages/Services";
 import AutoAssistAppDetail from "./pages/AutoAssistAppDetail";
+import BrandsCityDetail from "./pages/BrandsCityDetail";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
                 <Route path="/projets/webfusion-digital" element={<WebFusionDetail />} />
                 <Route path="/projets/jnbfitness" element={<JNBFitnessDetail />} />
                 <Route path="/projets/autoassistapp" element={<AutoAssistAppDetail />} />
+                <Route path="/projets/brands-city" element={<BrandsCityDetail />} />
                 <Route path="/temoignages" element={<Temoignages />} />
                 <Route path="/gallery" element={<TeamSection />} />
                 <Route path="/equipe" element={<Equipe />} />

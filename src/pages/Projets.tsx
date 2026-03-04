@@ -60,6 +60,15 @@ const projects = [
     stack: ["Flutter", "Node.js", "Firebase", "Gemini AI"],
     gradient: "from-neon-purple to-neon-pink",
   },
+  {
+    id: "brands-city",
+    title: "Brands City",
+    category: "E-Commerce",
+    description: "Plateforme e-commerce moderne dédiée à la vente de chaussures de marques. Interface élégante avec catalogue complet, filtres avancés et expérience d'achat optimisée.",
+    image: "/BrandCity.webp",
+    stack: ["React", ".NET", "MySQL"],
+    gradient: "from-neon-blue to-neon-cyan",
+  },
 ];
 // {
 //    id: "bousetta-wedding",
