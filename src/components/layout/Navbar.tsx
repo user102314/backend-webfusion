@@ -39,13 +39,25 @@ export function Navbar() {
     setIsOpen(false);
   }, [location]);
 
+  // Empêcher le défilement du body quand le menu mobile est ouvert
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card py-3" : "py-6"
+        isScrolled ? "bg-background/80 backdrop-blur-xl shadow-lg py-3" : "bg-background/50 backdrop-blur-md py-6"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -70,7 +82,6 @@ export function Navbar() {
           {navLinks.map((link) => {
             const Icon = link.icon;
             return link.special ? (
-              // Lien spécial pour "Offre"
               <motion.div
                 key={link.path}
                 whileHover={{ scale: 1.05 }}
@@ -92,7 +103,6 @@ export function Navbar() {
                 </Link>
               </motion.div>
             ) : (
-              // Liens normaux
               <Link
                 key={link.path}
                 to={link.path}
@@ -126,7 +136,8 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl glass-card border border-border/50"
+            className="lg:hidden p-2 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-colors"
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             {isOpen ? (
               <X className="w-5 h-5" />
@@ -140,50 +151,72 @@ export function Navbar() {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden"
+            className="fixed inset-x-0 top-[73px] lg:hidden"
+            style={{ 
+              height: 'calc(100vh - 73px)',
+              overflowY: 'auto'
+            }}
           >
-            <div className="container mx-auto px-4 py-4 space-y-2">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  {link.special ? (
-                    // Version mobile spéciale
-                    <Link
-                      to={link.path}
-                      className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold transition-all ${
-                        location.pathname === link.path
-                          ? "bg-primary text-white shadow-lg shadow-primary/30"
-                          : "bg-gradient-to-r from-primary/20 to-primary/10 text-primary border border-primary/30 hover:from-primary/30 hover:to-primary/20"
-                      }`}
-                    >
-                      <Sparkles className="w-5 h-5" />
-                      <span>{link.name}</span>
-                    </Link>
-                  ) : (
-                    <Link
-                      to={link.path}
-                      className={`block px-4 py-3 rounded-xl transition-all ${
-                        location.pathname === link.path
-                          ? "bg-primary/10 text-primary"
-                          : "hover:bg-muted text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </motion.nav>
+            {/* Overlay avec background flouté */}
+            <motion.div 
+              className="absolute inset-0 bg-background/95 backdrop-blur-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            
+            {/* Contenu du menu */}
+            <motion.nav
+              className="relative container mx-auto px-4 py-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="space-y-2 max-w-md mx-auto">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    {link.special ? (
+                      <Link
+                        to={link.path}
+                        className={`flex items-center gap-3 px-4 py-4 rounded-xl font-bold transition-all ${
+                          location.pathname === link.path
+                            ? "bg-primary text-white shadow-lg shadow-primary/30"
+                            : "bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Sparkles className="w-5 h-5" />
+                        <span className="text-lg">{link.name}</span>
+                      </Link>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className={`block px-4 py-4 rounded-xl text-lg transition-all ${
+                          location.pathname === link.path
+                            ? "bg-primary/15 text-primary font-semibold border-l-4 border-primary"
+                            : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.nav>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.header>
